@@ -1,0 +1,11 @@
+tokenizer:
+  type: tiktoken
+  name: gpt2
+  vocab_size: 50257
+  eos: "<|endoftext|>"
+
+benchmark:
+  compare:
+    - gpt2
+    - cl100k_base
+  sample_docs: 10000
