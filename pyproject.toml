@@ -4,10 +4,17 @@ build-backend = "hatchling.build"
 
 [project]
 name = "llm-project"
-version = "0.1.0"
+version = "0.2.0"
 requires-python = ">=3.10"
-dependencies = ["torch>=2.0.0", "numpy"]
+dependencies = [
+  "torch>=2.4",
+  "tiktoken>=0.7",
+  "datasets>=2.20",
+  "pyyaml>=6.0",
+  "numpy>=1.26",
+  "tqdm>=4.66",
+]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-pythonpath = ["src"]
+pythonpath = ["."]

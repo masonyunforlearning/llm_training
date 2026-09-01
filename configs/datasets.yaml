@@ -1,16 +1,56 @@
 datasets:
+
+  # English general web
   en:
     - name: HuggingFaceFW/fineweb
       split: train
       text_field: text
       streaming: true
       weight: 1.0
+
+
+  # English educational / quality
   en_edu:
     - name: HuggingFaceFW/fineweb-edu
       split: train
       text_field: text
       streaming: true
       weight: 1.0
+
+
+  # Korean large-scale general web
   ko:
-    # Add the Korean corpus selected after quality/licensing review.
-    []
+    - name: HuggingFaceFW/fineweb-2
+      config: kor_Hang
+      split: train
+      text_field: text
+      streaming: true
+      weight: 1.0
+
+
+  # Korean curated quality corpus
+  ko_quality:
+    - name: HAERAE-HUB/KOREAN-WEBTEXT
+      split: train
+      text_field: text
+      streaming: true
+      weight: 1.0
+
+
+validation:
+
+  en:
+    - name: HuggingFaceFW/fineweb
+      split: train
+      text_field: text
+      streaming: true
+      weight: 1.0
+
+
+  ko:
+    - name: HuggingFaceFW/fineweb-2
+      config: kor_Hang
+      split: train
+      text_field: text
+      streaming: true
+      weight: 1.0
