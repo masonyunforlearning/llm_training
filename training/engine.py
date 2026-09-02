@@ -22,7 +22,7 @@ class TrainingState:
     def to_dict(self):
         return asdict(self)
 
-
+# Unable to understand
 def resolve_amp(device: torch.device, amp: str):
     amp = amp.lower()
     if device.type != "cuda" or amp == "none":

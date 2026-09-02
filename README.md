@@ -35,6 +35,19 @@ python training/train_proxy.py `
   --lr 3e-4 `
   --num-workers 0 `
   --output-dir experiments/proxy/smoke
+
+
+python -m training.train_proxy `   
+  --model 50M `
+  --mixture ko:0.30,en:0.70 `
+  --train-tokens 100000 `
+  --seq-len 256 `
+  --batch-size 1 `
+  --grad-accum 4 `
+  --lr 3e-4 `
+  --num-workers 0 `
+  --output-dir experiments/proxy/smoke
+  --tokenizer cl100k_base
 ```
 
 This requires `configs/datasets.yaml` to contain at least one valid `ko` source. If Korean data is not configured, the command intentionally fails instead of silently training with the wrong mixture.

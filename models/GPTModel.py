@@ -35,7 +35,9 @@ class GPTModel(nn.Module):
             nn.init.normal_(module.weight, mean=0.0, std=0.02)
             if isinstance(module, nn.Linear) and module.bias is not None:
                 nn.init.zeros_(module.bias)
-
+    """
+    Main forward. Use Pytorch common functions
+    """
     def forward(
         self,
         input_ids: torch.Tensor,

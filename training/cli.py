@@ -49,7 +49,10 @@ def add_common_arguments(parser: argparse.ArgumentParser):
     parser.add_argument("--seed", type=int, default=123)
     return parser
 
-
+"""
+Author: Mason Yun 
+Description: main training llm
+"""
 def run_training(args, model_name: str):
     seed_everything(args.seed)
 

@@ -2,7 +2,6 @@ import argparse
 
 from training.cli import add_common_arguments, run_training
 
-
 def main():
     parser = argparse.ArgumentParser(
         description="Token-budget bilingual proxy pretraining"
