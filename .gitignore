@@ -13,3 +13,8 @@ experiments/runs/
 *.pt
 *.pth
 *.safetensors
+
+# Runtime / Kaggle artifacts
+token_cache/
+output/
+*.tmp

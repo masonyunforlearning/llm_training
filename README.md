@@ -55,3 +55,23 @@ This requires `configs/datasets.yaml` to contain at least one valid `ko` source.
 ### Important
 
 The current implementation does not silently fabricate a Korean dataset or validation split. Configure both explicitly after the corpus decision. If every active language has entries under `validation:`, the training CLI automatically enables evaluation.
+
+## New rolling streaming pipeline + DDP
+
+### Pipeline-only test (no training)
+```bash
+python scripts/test_data_pipeline.py --mixture ko:0.3,en:0.7 --shard-mb 64 --fill-shards 2
+```
+
+### Single GPU training
+```bash
+python training/train_ddp.py --model small --train-tokens 10000000 --cache-dir token_cache
+```
+
+### Two-GPU DDP
+```bash
+torchrun --standalone --nproc_per_node=2 training/train_ddp.py \
+  --model small --train-tokens 10000000 --cache-dir token_cache
+```
+
+Each rank owns `token_cache/rank_XX`, and HF streaming is sharded by global DDP rank. This prevents rank 0/1 from intentionally consuming the same source partition. Completed cache shards are immutable and the producer state is persisted next to each rank cache.
